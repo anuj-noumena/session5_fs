@@ -5,8 +5,24 @@ const connectDB = require("./db");
 const authRoutes = require("./routes/auth");
 const tasksRoutes = require("./routes/tasks");
 
+const allowedOrigins = [
+  "http://localhost:5173", // local dev (Vite's default port)
+  "https://session5-fs.vercel.app", // your live frontend URL
+];
+
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
 connectDB();

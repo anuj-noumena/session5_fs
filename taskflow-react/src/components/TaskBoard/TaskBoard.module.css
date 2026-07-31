@@ -1,0 +1,22 @@
+/* src/components/TaskBoard/TaskBoard.module.css */
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stateBox {
+  text-align: center;
+  padding: 48px 24px;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1.5px dashed #e2e8f0;
+}
+
+.errorBox {
+  color: #dc2626;
+  border-color: #fecaca;
+  background: #fef2f2;
+}

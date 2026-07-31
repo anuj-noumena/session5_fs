@@ -13,7 +13,9 @@ connectDB();
 
 app.use("/auth", authRoutes); // signup & login — public, no protect needed
 app.use("/tasks", tasksRoutes);
-
+app.get("/", (req, res) => {
+  res.send("TaskFlow API is running 🚀");
+});
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
